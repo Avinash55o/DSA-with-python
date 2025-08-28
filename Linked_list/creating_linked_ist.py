@@ -16,6 +16,7 @@ class linked_list:
     # dunder method for the len
     def __len__(self):
         return self.n
+    
     # dunder method for the print
     def __str__(self):
         curr=self.head
@@ -23,6 +24,7 @@ class linked_list:
         while curr != None:
             result=result + str(curr.data) + '->'
             curr=curr.next
+        # print(f'type of result is {type(result)}')
         return result[:-2]
     
     # creating nodes and there connection
@@ -56,17 +58,38 @@ class linked_list:
         # you are at the last node
         curr.next= new_node
         self.n= self.n + 1
+    
+    # Insert in the middle
+    def insert_after(self,after,value):
+        # create node
+        new_node=node(value)
+
+        #Run the while loop 
+        curr=self.head
+        while curr != None:
+            if curr.data == after:
+                break
+            curr=curr.next
+        
+        # case 1 if loop find the after value and it break then give the result
+        # case 2 if loop run totally when no is not fined then we have a else case
+
+        if curr != None:
+            new_node.next= curr.next
+            curr.next = new_node
+        else:
+            return 'after value not found!'
 
 
 l=linked_list()
 
-l.insert_head(1)
-l.insert_head(2)
-l.insert_head(3)
 l.insert_head(4)
+l.insert_head(3)
+l.insert_head(2)
+l.insert_head(1)
 
 l.append(8)
 
 print(len(l))
-
+l.insert_after(4,12)
 print(l)
