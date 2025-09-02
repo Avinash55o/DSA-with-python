@@ -84,6 +84,15 @@ class linked_list:
     def clear(self):
         self.head=None
         self.n=0
+   
+    # TO DELETE THE HEAD
+    def delete_head(self):
+        if self.head == None:
+            print("linked list is empty")
+        else:
+            self.head= self.head.next
+            self.n= self.n -1
+    
 
 
 
