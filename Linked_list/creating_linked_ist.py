@@ -7,6 +7,7 @@ class node:
 # print(a.data)
 
 class linked_list:
+    # TO CREATE ANN EMPTY HEAD
     def __init__(self):
         # empty linked list
         self.head=None
@@ -16,7 +17,7 @@ class linked_list:
     # dunder method for the len
     def __len__(self):
         return self.n
-    
+     
     # dunder method for the print
     def __str__(self):
         curr=self.head
@@ -38,7 +39,6 @@ class linked_list:
         # increment n
         self.n=self.n + 1
 
-   
     # append at tail
     def append(self,value):
         # set the new node
@@ -79,6 +79,12 @@ class linked_list:
             curr.next = new_node
         else:
             return 'after value not found!'
+        
+    # FOR EMPTY LINKED LIST
+    def clear(self):
+        self.head=None
+        self.n=0
+
 
 
 l=linked_list()
@@ -92,4 +98,6 @@ l.append(8)
 
 print(len(l))
 l.insert_after(4,12)
+print(l)
+l.delete_head()
 print(l)
