@@ -93,6 +93,26 @@ class linked_list:
             self.head= self.head.next
             self.n= self.n -1
     
+    # POP FUNCTION OR DELETE FROM THE END
+    def pop(self):
+
+        # if linked list is empty:
+        if self.head == None:
+            print('empty list')
+
+        curr=self.head
+
+        # what if only one item is their
+        if curr.next == None:
+            # use the delete head function
+            self.delete_head()
+
+        while curr.next.next != None:
+            curr= curr.next
+        # while will give the second last node in the linked list
+        curr.next= None
+        self.n= self.n -1
+    
 
 
 
