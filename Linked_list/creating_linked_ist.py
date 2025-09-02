@@ -113,6 +113,25 @@ class linked_list:
         curr.next= None
         self.n= self.n -1
     
+    # REMOVE BY VALUE
+    def remove(self, value):
+        # if the linked list is empty
+        if self.head== None:
+            return 'empty linkedlist'
+        # if head is the value the user give which has no before node
+        if self.head == value:
+            return self.delete_head()
+        curr=self.head
+        while curr.next != None:
+            if curr.next.data == value:
+                break
+            curr=curr+1
+
+        # now there are two case --> WE GET THE NO or  WE DIDN'T GET THE NO
+        if curr.next == None:
+            return 'not found'
+        else:
+            curr.next= curr.next.next
 
 
 
